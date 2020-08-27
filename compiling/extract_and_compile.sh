@@ -27,3 +27,7 @@ gcc -Wall -g -c nth_prime.c
 # Combine the two executable files using gcc's -o option
 gcc -o NthPrime main.o nth_prime.o -lm
 
+# Clean up
+rm main.o nth_prime.o
+
+
