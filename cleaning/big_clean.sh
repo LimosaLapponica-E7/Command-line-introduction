@@ -4,7 +4,11 @@
 userArchiveName=$1
 
 # Create a temporary directory (-d, or --directory)
+# Save the path string to the temporaryDirectory variable
+temporaryDirectory=`mktemp -d`
 
-# Run tar and extract archive into a temporary directory "mktemp," option -d (--directory)
+# Run tar and extract archive into a temporary directory whose path is saved
+# in the variable temporaryDirectory
 # Options: -xf -> extract all files from the archive
-tar -C `mktemp -d` -xf $userArchiveName 
+tar -C $temporaryDirectory -xf $userArchiveName 
+
