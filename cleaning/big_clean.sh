@@ -20,3 +20,4 @@ currentPath=$(pwd)
 
 # Go to temporary directory
 cd $temporaryDirectory
+
