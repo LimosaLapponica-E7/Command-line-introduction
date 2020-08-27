@@ -12,3 +12,11 @@ temporaryDirectory=`mktemp -d`
 # Options: -xf -> extract all files from the archive
 tar -C $temporaryDirectory -xf $userArchiveName 
 
+# Explain
+find $temporaryDirectory | grep -w "DELETE ME!"  | xargs rm -f
+
+# Before going to the temporary directory, we save our current path
+currentPath=$(pwd)
+
+# Go to temporary directory
+cd $temporaryDirectory
