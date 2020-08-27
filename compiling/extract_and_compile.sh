@@ -24,3 +24,6 @@ cd NthPrime
 gcc -Wall -g -c main.c
 gcc -Wall -g -c nth_prime.c
 
+# Combine the two executable files using gcc's -o option
+gcc -o NthPrime main.o nth_prime.o -lm
+
