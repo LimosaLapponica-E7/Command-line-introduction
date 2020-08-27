@@ -1,17 +1,20 @@
 #!/bin/bash
 
 # Get a number input from user
-userNumberInput=""
+userNumberInput=$1
 
-numRegex='[0-9]$' ## Regex for "a digit"
+# Orignial attempt
+# I didn't read what the tests expected here
+# numRegex='[0-9]$' ## Regex for "a digit"
 
 # Ask user for number until a correct input is given
 # Based on https://stackoverflow.com/a/60274328
-until [[ $userNumberInput =~ $numRegex ]]
-do
-    echo Please enter a number
-    read userNumberInput
-done
+# until [[ $userNumberInput =~ $numRegex ]]
+# do
+#     echo Please enter a number
+#     read userNumberInput
+# done
+
 
 # Extract NthPrime.tgz
 # Options: -xf -> extract all files from the archive
