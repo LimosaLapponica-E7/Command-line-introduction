@@ -13,7 +13,14 @@ do
     read userNumberInput
 done
 
-
 # Extract NthPrime.tgz
 # Options: -xf -> extract all files from the archive
 tar -xf NthPrime.tgz
+
+# Go into the new directory for C files
+cd NthPrime
+
+# Complile the individual C files
+gcc -Wall -g -c main.c
+gcc -Wall -g -c nth_prime.c
+
