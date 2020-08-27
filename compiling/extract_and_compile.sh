@@ -30,4 +30,5 @@ gcc -o NthPrime main.o nth_prime.o -lm
 # Clean up
 rm main.o nth_prime.o
 
-
+# Run the program with out input
+./NthPrime $userNumberInput
