@@ -12,12 +12,32 @@ temporaryDirectory=`mktemp -d`
 # Options: -xf -> extract all files from the archive
 tar -C $temporaryDirectory -xf $userArchiveName 
 
-# Explain
-find $temporaryDirectory | grep -w "DELETE ME!"  | xargs rm -f
-
 # Before going to the temporary directory, we save our current path
-currentPath=$(pwd)
+programHomePath=$(pwd)
 
 # Go to temporary directory
 cd $temporaryDirectory
 
+# Keep the name of the listed directory (we know we only created one directory)
+directoryName=$(ls)
+
+## Change to the directory containing the files to be deleted
+cd $directoryName
+
+# Use grep to search for term "DELETE ME" in files
+# xargs -> rm: remove files that are matches
+# grep options recursive and list selected
+grep -rl "DELETE ME!" | xargs rm
+
+# Save archive file name
+archiveName="cleaned_${userArchiveName}"
+
+# Move back one directory so that the entire directory containing the files may be archived
+cd $temporaryDirectory
+
+# Archive directory containing files
+# c create archive, z compress with gzip, f specify file name
+tar -czf $archiveName $directoryName
+
+# Move archive to project directory (programHomePath)
+mv $temporaryDirectory/$archiveName $programHomePath
