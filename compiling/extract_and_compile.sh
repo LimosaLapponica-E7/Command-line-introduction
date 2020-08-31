@@ -20,8 +20,8 @@ userNumberInput=$1
 # Options: -xf -> extract all files from the archive
 tar -xf NthPrime.tgz
 
-# Go into the new directory for C files
-cd NthPrime
+# Go into the new directory for C files; exit if cd fails
+cd NthPrime || exit
 
 # Complile the individual C files
 gcc -Wall -g -c main.c
@@ -34,4 +34,4 @@ gcc -o NthPrime main.o nth_prime.o -lm
 rm main.o nth_prime.o
 
 # Run the program with out input
-./NthPrime $userNumberInput
+./NthPrime "$userNumberInput"
